@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UpdateNumber extends Model
+class UpdateNumber3 extends Model
 {
-    protected $connection = 'first_db'; // Specify the name of the second database connection
-
+    protected $connection = 'third_db';
     protected $table = 'subcategory';
-
     protected $fillable = ['cat_id', 'time', 'date', 'number'];
 }

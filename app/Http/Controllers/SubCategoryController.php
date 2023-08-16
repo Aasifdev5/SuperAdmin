@@ -7,6 +7,9 @@ use DB;
 use App\Models\subcategory;
 use App\Models\category;
 use App\Models\UpdateNumber;
+use App\Models\UpdateNumber2;
+use App\Models\UpdateNumber3;
+use App\Models\UpdateNumber4;
 use App\Models\User;
 
 class SubCategoryController extends Controller
@@ -40,17 +43,38 @@ class SubCategoryController extends Controller
             return back()->with('error', 'it can not created because it already exits.');
         }
         $subcategory = new subcategory;
-        $superfast = new UpdateNumber;
-
+        $kingsatta = new UpdateNumber;
+        $superfast = new UpdateNumber2;
+        $resultsatta = new UpdateNumber3;
+        $desawar = new UpdateNumber4;
         $sql = "SELECT * FROM `category` where id='" . $request->input('data1') . "' ";
         $time = DB::select($sql);
         $time = array_column($time, 'time', '0');
+
+        $kingsatta->cat_id = $request->input('data1');
+        $kingsatta->date = $request->input('date');
+        $kingsatta->time = $time['0'];
+        $kingsatta->number = $request->input('number');
+        $kingsatta->save();
 
         $superfast->cat_id = $request->input('data1');
         $superfast->date = $request->input('date');
         $superfast->time = $time['0'];
         $superfast->number = $request->input('number');
         $superfast->save();
+
+        $resultsatta->cat_id = $request->input('data1');
+        $resultsatta->date = $request->input('date');
+        $resultsatta->time = $time['0'];
+        $resultsatta->number = $request->input('number');
+        $resultsatta->save();
+
+        $desawar->cat_id = $request->input('data1');
+        $desawar->date = $request->input('date');
+        $desawar->time = $time['0'];
+        $desawar->number = $request->input('number');
+        $desawar->save();
+
         $subcategory->cat_id = $request->input('data1');
         $subcategory->date = $request->input('date');
         $subcategory->time = $time['0'];

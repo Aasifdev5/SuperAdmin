@@ -71,6 +71,15 @@ return [
                 'NO_ENGINE_SUBSTITUTION'
             ],
         ],
+        'first_db' => [
+            'driver' => 'mysql',
+            'host' => env('FIRST_DB_HOST', '127.0.0.1'),
+            'port' => env('FIRST_DB_PORT', '3306'),
+            'database' => env('FIRST_DB_DATABASE', 'forge'),
+            'username' => env('FIRST_DB_USERNAME', 'forge'),
+            'password' => env('FIRST_DB_PASSWORD', ''),
+            // ...
+        ],
         'second_db' => [
             'driver' => 'mysql',
             'host' => env('SECOND_DB_HOST', '127.0.0.1'),
