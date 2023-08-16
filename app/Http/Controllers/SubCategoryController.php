@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use App\Models\subcategory;
 use App\Models\category;
 use App\Models\UpdateNumber;
@@ -93,7 +93,6 @@ class SubCategoryController extends Controller
     }
 
 
-
     public function editsubcategory($id)
     {
         $data1 = category::all();
@@ -112,7 +111,7 @@ class SubCategoryController extends Controller
         $data->time = $time['0'];
         $data->number = $request->input('number');
         $data->update();
-        $datas = subcategory::all();
+
         return redirect('listsubcategory');
     }
 
@@ -120,6 +119,16 @@ class SubCategoryController extends Controller
     {
         $data = subcategory::findOrFail($id);
         $data->delete();
+        $kingsatta =  UpdateNumber::findOrFail($id);
+        $kingsatta->delete();
+        $superfast =  UpdateNumber2::findOrFail($id);
+        $superfast->delete();
+        $resultsatta =  UpdateNumber3::findOrFail($id);
+        $resultsatta->delete();
+        $desawar =  UpdateNumber4::findOrFail($id);
+        $desawar->delete();
+
+
         return back()->with('success', 'subcategory deleted successfully');
     }
 }

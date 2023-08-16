@@ -41,6 +41,7 @@ Route::get('/list', [frontendController::class, 'list']);
 Route::get('/add_distributor', [frontendController::class, 'add_distributor']);
 Route::get('items/edit/{item}', [Distributor::class, 'edit'])->name('edit');
 Route::post('items/{item}', [Distributor::class, 'update'])->name('update');
+Route::get('deletesubcategory/{id}', [SubCategoryController::class, 'deletesubcategory']);
 
 Route::post('/save_distributor', [frontendController::class, 'save_distributor']);
 Route::middleware([
@@ -83,7 +84,6 @@ Route::middleware([
     Route::get('/listsubcategory', [SubCategoryController::class, 'listsubcategory']);
     Route::get('/editsubcategory/{id}', [SubCategoryController::class, 'editsubcategory']);
     Route::put('/updatesubcategory/{id}', [SubCategoryController::class, 'updatesubcategory']);
-    Route::get('/deletesubcategory/{id}', [SubCategoryController::class, 'deletesubcategory']);
 
 
     Route::get('/addpopup', [popupController::class, 'addpopup']);

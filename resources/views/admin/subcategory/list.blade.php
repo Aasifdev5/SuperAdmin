@@ -81,29 +81,28 @@
                               <td>{{ $u->number }}</td>
 
                               <td>
-                                 <div class="btn-group" role="group">
-                                    <div class="btn-group float-right" role="group">
-                                       <a href="{{ url('editsubcategory', $u->id) }}"
-                                          class="btn btn-outline-primary btn-sm rounded-circle">
-                                          <i class="fas fa-edit"></i>
-                                       </a>
-                                    </div>
+                                 <!-- <div class="btn-group" role="group">
+                                       <div class="btn-group float-right" role="group">
+                                          <a href="{{ url('editsubcategory', $u->id) }}" class="btn btn-outline-primary btn-sm rounded-circle">
+                                             <i class="fas fa-edit"></i>
+                                          </a>
+                                       </div> -->
 
-                                    <br>
-                                    <div class="btn-group float-right" role="group">
-                                       <a href="{{ url('deletesubcategory', $u->id) }}"
-                                          class="btn btn-outline-danger btn-sm rounded-circle">
-                                          <i class="fas fa-trash"></i>
-                                       </a>
-                                    </div>
+                                 <br>
+                                 <div class="btn-group float-right" role="group">
+                                    <a href="{{ url('deletesubcategory', $u->id) }}"
+                                       class="btn btn-outline-danger btn-sm rounded-circle">
+                                       <i class="fas fa-trash"></i>
+                                    </a>
                                  </div>
+                  </div>
 
-                              </td>
-                           </tr>
+                  </td>
+                  </tr>
 
-                           <?php $i++; ?>
-                           @endforeach
-                           <?php } else {
+                  <?php $i++; ?>
+                  @endforeach
+                  <?php } else {
                               $user = DB::select("SELECT * FROM `users` where id='" . $session['login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'] . "'");
                               $user = json_decode(json_encode($user), 'true');
                               // $user=    explode(",",$user['0']);
@@ -125,56 +124,56 @@
 
 
                               ?>
-                           <tr>
+                  <tr>
 
-                              <td>{{ $i }}</td>
-                              <td>{{$name['0'] }}</td>
-                              <td>{{$row->time}}</td>
-                              <td>{{$row->date}}</td>
-                              <td>{{$row->number}}</td>
-                              <td>
-                                 <div class="btn-group" role="group">
+                     <td>{{ $i }}</td>
+                     <td>{{$name['0'] }}</td>
+                     <td>{{$row->time}}</td>
+                     <td>{{$row->date}}</td>
+                     <td>{{$row->number}}</td>
+                     <td>
+                        <!-- <div class="btn-group" role="group">
                                     <div class="btn-group float-right" role="group">
                                        <a href="{{ url('editsubcategory', $row->id) }}"
                                           class="btn btn-outline-primary btn-sm rounded-circle">
                                           <i class="fas fa-edit"></i>
                                        </a>
-                                    </div>
+                                    </div> -->
 
-                                    <br>
-                                    <div class="btn-group float-right" role="group">
-                                       <a href="{{ url('deletesubcategory', $row->id) }}"
-                                          class="btn btn-outline-danger btn-sm rounded-circle">
-                                          <i class="fas fa-trash"></i>
-                                       </a>
-                                    </div>
-                                 </div>
+                        <br>
+                        <div class="btn-group float-right" role="group">
+                           <a href="{{ url('deletesubcategory', $row->id) }}"
+                              class="btn btn-outline-danger btn-sm rounded-circle">
+                              <i class="fas fa-trash"></i>
+                           </a>
+                        </div>
+               </div>
 
-                              </td>
-                           </tr>
-                           <?php
+               </td>
+               </tr>
+               <?php
                                  $i++;
                               }
                            } ?>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-               <div class="card-footer">
-                  <div class="row">
+               </tbody>
+               </table>
+            </div>
+         </div>
+         <div class="card-footer">
+            <div class="row">
 
-                     <div class="col-sm-6">
-                        <div class="dataTables_paginate paging_simple_numbers">
-                           <ul class="pagination justify-content-end" id="pagination"></ul>
-                        </div>
-                     </div>
+               <div class="col-sm-6">
+                  <div class="dataTables_paginate paging_simple_numbers">
+                     <ul class="pagination justify-content-end" id="pagination"></ul>
                   </div>
                </div>
             </div>
          </div>
-         <!-- [ striped-table ] end -->
       </div>
-      <!-- [ Main Content ] end -->
+   </div>
+   <!-- [ striped-table ] end -->
+   </div>
+   <!-- [ Main Content ] end -->
    </div>
 </section>
 
