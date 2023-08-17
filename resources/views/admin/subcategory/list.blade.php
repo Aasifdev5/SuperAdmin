@@ -64,8 +64,8 @@
                               $today_data = DB::select($sql);
 
                            ?>
-                              @foreach($today_data as $u)
-                              <?php
+                           @foreach($today_data as $u)
+                           <?php
 
                               $catname = DB::select("SELECT * FROM `category` where id in ('" . $u->cat_id . "')");
                               $name = array_column($catname, 'name', '0');
@@ -73,27 +73,28 @@
                               // print_r($catname);
                               ?>
 
-                              <tr>
-                                 <td>{{ $i }}</td>
-                                 <td>{{$name['0']}}</td>
-                                 <td>{{$time['0']}}</td>
-                                 <td>{{ $u->date }}</td>
-                                 <td>{{ $u->number }}</td>
+                           <tr>
+                              <td>{{ $i }}</td>
+                              <td>{{$name['0']}}</td>
+                              <td>{{$time['0']}}</td>
+                              <td>{{ $u->date }}</td>
+                              <td>{{ $u->number }}</td>
 
-                                 <td class="text-center">
-                                    <!-- <div class="btn-group" role="group">
+                              <td class="text-center">
+                                 <!-- <div class="btn-group" role="group">
                                        <div class="btn-group float-right" role="group">
                                           <a href="{{ url('editsubcategory', $u->id) }}" class="btn btn-outline-primary btn-sm rounded-circle">
                                              <i class="fas fa-edit"></i>
                                           </a>
                                        </div> -->
 
-                                    <br>
-                                    <div class="btn-group " role="group">
-                                       <a href="{{ url('deletesubcategory', $u->id) }}" class="btn btn-outline-danger btn-sm rounded-circle">
-                                          <i class="fas fa-trash"></i>
-                                       </a>
-                                    </div>
+                                 <br>
+                                 <div class="btn-group " role="group">
+                                    <a href="{{ url('deletesubcategory', $u->id) }}"
+                                       class="btn btn-outline-danger btn-sm rounded-circle">
+                                       <i class="fas fa-trash"></i>
+                                    </a>
+                                 </div>
                   </div>
 
                   </td>
@@ -123,15 +124,15 @@
 
 
                   ?>
-                     <tr>
+                  <tr>
 
-                        <td>{{ $i }}</td>
-                        <td>{{$name['0'] }}</td>
-                        <td>{{$row->time}}</td>
-                        <td>{{$row->date}}</td>
-                        <td>{{$row->number}}</td>
-                        <td class="text-center">
-                           <!-- <div class="btn-group" role="group">
+                     <td>{{ $i }}</td>
+                     <td>{{$name['0'] }}</td>
+                     <td>{{$row->time}}</td>
+                     <td>{{$row->date}}</td>
+                     <td>{{$row->number}}</td>
+                     <td class="text-center">
+                        <!-- <div class="btn-group" role="group">
                                     <div class="btn-group float-right" role="group">
                                        <a href="{{ url('editsubcategory', $row->id) }}"
                                           class="btn btn-outline-primary btn-sm rounded-circle">
@@ -139,22 +140,22 @@
                                        </a>
                                     </div> -->
 
-                           <br>
-                           <div class="btn-group " role="group">
+                        <br>
+                        <!-- <div class="btn-group " role="group">
                               <a href="{{ url('deletesubcategory', $row->id) }}" class="btn btn-outline-danger btn-sm rounded-circle">
                                  <i class="fas fa-trash"></i>
                               </a>
-                           </div>
+                           </div> -->
                </div>
 
                </td>
                </tr>
-         <?php
+               <?php
                                  $i++;
                               }
                            } ?>
-         </tbody>
-         </table>
+               </tbody>
+               </table>
             </div>
          </div>
          <div class="card-footer">
