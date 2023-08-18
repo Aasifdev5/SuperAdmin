@@ -87,7 +87,7 @@
                   <ul class="pcoded-submenu">
                      <li> <a href="{{('/listcontant')}}">main Content</a></li>
                      <li><a href="{{('/listpopup')}}">Pop-Up Content</a> </li>
-
+                     <li><a href="{{('/banners')}}">Banner</a> </li>
                   </ul>
                </li>
             <?php

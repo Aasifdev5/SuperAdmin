@@ -61,6 +61,14 @@ Route::middleware([
     Route::get('/editcontent/{id}', [contentController::class, 'editcontent']);
     Route::put('/updatecontent/{id}', [contentController::class, 'updatecontent']);
     Route::get('/deletecontent/{id}', [contentController::class, 'deletecontent']);
+    Route::get('/banner', [contentController::class, 'banner']);
+    Route::post('/save_banner', [contentController::class, 'save_banner']);
+    Route::get('/banners', [contentController::class, 'banners']);
+    Route::get('/edit_banner/{id}', [contentController::class, 'edit_banner']);
+    Route::post('/update_banner/{id}', [contentController::class, 'update_banner']);
+    Route::get('/delete_banner/{id}', [contentController::class, 'delete_banner']);
+
+
 
     Route::get('/addslider', [sliderController::class, 'addslider']);
     Route::post('/saveslider', [sliderController::class, 'saveslider']);
