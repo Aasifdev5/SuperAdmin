@@ -2731,6 +2731,20 @@
 
 
       </section>
+      <div class="container text-center my-3">
+         <div class="row mx-auto my-auto justify-content-center mb-5">
+            <?php
+            // dd($banner);
+            ?>
+            @foreach($banner as $row)
+            <div class="col-sm-4">
+               <a href="{{$row->link}}"><img src="{{ asset('images/banner/' . $row->image) }}" width="300" height="300"
+                     class="img-fluid"></a>
+            </div>
+
+            @endforeach
+         </div>
+      </div>
       <!-- ======= Services Section ======= -->
       <div class="container text-center my-3">
          <div class="row mx-auto my-auto justify-content-center mb-5">

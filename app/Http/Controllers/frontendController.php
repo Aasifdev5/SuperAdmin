@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use App\Models\PasswordReset;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\Banner;
 
 
 
@@ -28,7 +28,7 @@ class frontendController extends Controller
         $popups = DB::table('popup')->latest()->get();
 
         $slider = DB::table('slider')->get();
-
+        $banner = Banner::all();
         $subcategories = DB::table('subcategory')
             ->join('category', 'subcategory.cat_id', '=', 'category.id')
             ->select('subcategory.id', 'subcategory.cat_id', 'subcategory.time', 'subcategory.date', 'subcategory.number', 'category.name as category_name')
@@ -71,7 +71,7 @@ class frontendController extends Controller
 
 
 
-        return view('frontend.index', compact('datas', 'popups', 'slider', 'subcategories', 'todayRecords', 'tomorrowRecords', 'sub'));
+        return view('frontend.index', compact('datas', 'banner', 'popups', 'slider', 'subcategories', 'todayRecords', 'tomorrowRecords', 'sub'));
     }
 
 
@@ -130,7 +130,7 @@ class frontendController extends Controller
             return response()->json(['success' => false, 'msg' => $e->getMessage()]);
         }
     }
-     public function ResetPasswordLoad(Request $request)
+    public function ResetPasswordLoad(Request $request)
     {
 
         $resetData =  PasswordReset::where('token', $request->token)->get();
@@ -212,7 +212,7 @@ class frontendController extends Controller
         $categoryId = $request->id;
         $datas = DB::table('content')->latest()->get();
         $popups = DB::table('popup')->latest()->get();
-
+        $banner = Banner::all();
         $subcategories = DB::table('subcategory')
             ->join('category', 'subcategory.cat_id', '=', 'category.id')
             ->select('subcategory.id', 'subcategory.cat_id', 'subcategory.time', 'subcategory.date', 'subcategory.number', 'category.name as category_name')
@@ -264,6 +264,6 @@ class frontendController extends Controller
         // Get the category name based on $catId
         $categoryName = isset($catIdToName[$catId]) ? $catIdToName[$catId] : '';
 
-        return view('frontend.dd', compact('datas', 'popups', 'subcategories', 'todayRecords', 'tomorrowRecords', 'sub', 'catId', 'categoryId', 'catIdToName', 'categoryName', 'key'));
+        return view('frontend.dd', compact('datas', 'banner', 'popups', 'subcategories', 'todayRecords', 'tomorrowRecords', 'sub', 'catId', 'categoryId', 'catIdToName', 'categoryName', 'key'));
     }
 }

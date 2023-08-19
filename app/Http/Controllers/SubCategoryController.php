@@ -10,6 +10,7 @@ use App\Models\UpdateNumber;
 use App\Models\UpdateNumber2;
 use App\Models\UpdateNumber3;
 use App\Models\UpdateNumber4;
+use App\Models\UpdateNumber5;
 use App\Models\User;
 
 class SubCategoryController extends Controller
@@ -47,6 +48,8 @@ class SubCategoryController extends Controller
         $superfast = new UpdateNumber2;
         $resultsatta = new UpdateNumber3;
         $desawar = new UpdateNumber4;
+        $desawarkings = new UpdateNumber5;
+
         $sql = "SELECT * FROM `category` where id='" . $request->input('data1') . "' ";
         $time = DB::select($sql);
         $time = array_column($time, 'time', '0');
@@ -74,6 +77,13 @@ class SubCategoryController extends Controller
         $desawar->time = $time['0'];
         $desawar->number = $request->input('number');
         $desawar->save();
+
+        $desawarkings->cat_id = $request->input('data1');
+        $desawarkings->date = $request->input('date');
+        $desawarkings->time = $time['0'];
+        $desawarkings->number = $request->input('number');
+        $desawarkings->save();
+
 
         $subcategory->cat_id = $request->input('data1');
         $subcategory->date = $request->input('date');
@@ -127,7 +137,8 @@ class SubCategoryController extends Controller
         $resultsatta->delete();
         $desawar =  UpdateNumber4::findOrFail($id);
         $desawar->delete();
-
+        $desawarkings =  UpdateNumber5::findOrFail($id);
+        $desawarkings->delete();
 
         return back()->with('success', 'subcategory deleted successfully');
     }
